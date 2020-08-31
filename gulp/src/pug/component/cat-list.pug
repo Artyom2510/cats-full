@@ -1,0 +1,21 @@
+- var cards = [{class: "cat-list__card card", kg: "0,5", desc: "с фуа-гра", info: "10 порций мышь в подарок", desc1: true, text: "Печень утки разварная с артишоками"}, {class: "cat-list__card card", kg: "2", label: "Сказочное заморское яство", desc: "с рыбой", info: "40 порций 2 мыши в подарок", desc1: true, text: "Головы щучьи с чесноком да свежайщая сёмга"}, {class: "cat-list__card card card_disable", kg: "5", label: "Сказочное заморское яство", desc: "с курой", info: "100 порций 5 мышей в подарок заказчик доволен", desc1: false, text: ""}];
+
+ul.main__cats.cat-list
+	each card in cards
+		li(class=card.class)
+			button.card__wrap.btn.js-btn-tgl(data-kg=card.kg data-text=card.text)
+				label.btn__label Сказочное заморское яство
+					span
+				.btn__body
+					p.btn__name Нямушка
+					p.btn__desc #{card.desc}
+					p.btn__info #{card.info}
+			if card.desc1
+				p.card__desc
+					span Чего сидишь? Порадуй котэ,
+					button.js-btn-tgl-word купи
+					| .
+			else
+				p.card__desc
+					span Печалька, #{card.desc} закончилось.
+					button.js-btn-tgl-word купи

@@ -1,0 +1,55 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	position: relative;
+	background-color: $black;
+}
+
+.root {
+	display: block;
+	width: 100vw;
+	min-width: 320px;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	background: url("./bg.png") repeat 0 0 $black;
+}
+
+a,
+button {
+	outline: none !important;
+	cursor: pointer;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+h1,
+p {
+	display: block;
+	margin: 0;
+}
+
+h1 {
+	font-family: "ExoThin", sans-serif;
+	font-size: 36px;
+	line-height: 42px;
+	font-weight: 300;
+	text-align: center;
+	color: $white;
+	text-shadow: 0 1px 1px $black;
+}

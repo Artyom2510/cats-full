@@ -1,0 +1,403 @@
+.main {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	min-height: 100%;
+	padding: 50px 24px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 5e-05) 49.88%, rgba(0, 0, 0, 0.5) 100%);
+	}
+
+	&__container {
+		display: block;
+		width: 100%;
+	}
+
+	&__title {
+		width: 100%;
+		margin-bottom: 32px;
+
+		@media (max-width: $xs) {
+			margin-bottom: 24px;
+		}
+	}
+}
+
+.cat-list {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	&__card {
+		margin: 0 40px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (max-width: $md) {
+			margin: 0 20px 24px;
+
+			&:first-child {
+				margin-left: 20px;
+			}
+
+			&:last-child {
+				margin: 0 40px;
+			}
+		}
+
+		@media (max-width: $xs) {
+			margin: 0 0 32px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+}
+
+.card {
+	position: relative;
+	display: block;
+	width: 320px;
+	padding: 0;
+	border: none;
+	overflow: hidden;
+	background-color: transparent;
+	text-align: left;
+
+	/* stylelint-disable no-descending-specificity */
+	&_selected {
+
+		.btn {
+
+			&::before {
+				background-color: $pink;
+			}
+
+			&:hover {
+				&::before {
+					background-color: $pink-hover;
+				}
+
+				.btn__label,
+				.btn__body {
+					border-color: $pink-hover;
+				}
+
+				.btn__label {
+					&::after {
+						background-color: $pink-hover;
+					}
+				}
+			}
+		}
+
+		.btn__label,
+		.btn__body {
+			border-color: $pink;
+		}
+
+		.btn__label {
+			&::after {
+				background-color: $pink;
+			}
+		}
+
+		.card__desc {
+
+			button {
+				display: none;
+			}
+		}
+	}
+
+	&_disable {
+		border-color: $gray;
+		pointer-events: none;
+
+		.btn {
+
+			&::before {
+				background-color: $gray;
+			}
+		}
+
+		.btn__label,
+		.btn__body {
+			border-color: $gray;
+		}
+
+		.btn__body {
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: rgba($white, 0.7);
+			}
+		}
+
+		.btn__label {
+			&::after {
+				background-color: rgba($gray, 0.7);
+			}
+
+			span {
+				display: block;
+			}
+		}
+
+		.card__desc {
+			color: $yellow;
+
+			button {
+				display: none;
+			}
+		}
+	}
+
+	&__wrap {
+		position: relative;
+		z-index: 1;
+		margin-bottom: 14px;
+	}
+
+	&__desc {
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 13px;
+		line-height: 15px;
+		font-weight: 400;
+		color: $white;
+		text-align: center;
+
+		button {
+			display: inline-block;
+			padding: 0;
+			border: none;
+			background-color: transparent;
+			color: $blue;
+			text-decoration: dashed underline;
+		}
+
+		@media (max-width: $xxs) {
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+}
+
+.btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+	width: 100%;
+	height: 480px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	// изи решение, IE11 not supported :(
+	// clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+	text-align: left;
+	transition: border-color 0.2s ease;
+
+	&::before,
+	&::after {
+		position: absolute;
+		z-index: 2;
+		right: 15px;
+		bottom: 15px;
+		display: block;
+		width: 80px;
+		height: 80px;
+		font-family: "Trebuchet MS", sans-serif;
+		font-weight: 400;
+		text-align: center;
+		color: $white;
+		border-radius: 50%;
+	}
+
+	&::before {
+		content: attr(data-kg);
+		font-size: 42px;
+		line-height: 70px;
+		background-color: $blue;
+		transition: background-color 0.2s ease;
+	}
+
+	&::after {
+		content: "кг";
+		font-size: 21px;
+		line-height: 132px;
+	}
+
+	&:hover {
+
+		&::before {
+			background-color: $blue-hover;
+		}
+
+		.btn__label,
+		.btn__body {
+			border-color: $blue-hover;
+		}
+
+		.btn__label {
+			&::after {
+				background-color: $blue-hover;
+			}
+		}
+	}
+
+	&__label {
+		position: relative;
+		display: block;
+		width: calc(100% - 40px);
+		height: 41px;
+		margin: 0;
+		padding: 19px 48px 1px 12px;
+		border-top-right-radius: 12px;
+		border-top: 4px solid $blue;
+		border-right: 4px solid $blue;
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 16px;
+		line-height: 1;
+		font-weight: 400;
+		color: $satan;
+		background-color: $white;
+		pointer-events: none;
+		transition: border-color 0.2s ease;
+
+		@media (max-width: $xs) {
+			padding-right: 22px;
+			padding-left: 0;
+		}
+
+		&_pink {
+			color: $pink;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			display: block;
+		}
+
+		&::before {
+			z-index: 2;
+			left: 0;
+			transform: translateX(-100%);
+			width: 0;
+			height: 0;
+			border-bottom: 38px solid $white;
+			border-left: 38px solid transparent;
+		}
+
+		&::after {
+			z-index: 3;
+			left: 0;
+			// transform: translate(-20px, -12px) rotate(45deg);
+			transform: rotate(45deg) translate(-23px, 7px);
+			width: 4px;
+			height: 58px;
+			background-color: $blue;
+			transition: background-color 0.2s ease;
+		}
+
+		span {
+			position: absolute;
+			z-index: 3;
+			top: 0;
+			left: 0;
+			display: none;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($white, 0.7);
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: translateX(-100%);
+				display: block;
+				width: 0;
+				height: 0;
+				border-bottom: 36px solid rgba($white, 0.7);
+				border-left: 36px solid transparent;
+			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin-top: -1px;
+		padding: 5px 48px 20px;
+		background: url("#{$url-img}/cat.png") 50% 218% no-repeat $white;
+		border: 4px solid $blue;
+		border-top: none;
+		border-bottom-left-radius: 12px;
+		border-bottom-right-radius: 12px;
+		transition: border-color 0.2s ease;
+
+		@media (max-width: $xs) {
+			padding-right: 22px;
+			padding-left: 32px;
+		}
+	}
+
+	&__name {
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 48px;
+		line-height: 56px;
+		font-weight: 700;
+		color: $black;
+	}
+
+	&__desc {
+		margin-bottom: 15px;
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 24px;
+		line-height: 28px;
+		font-weight: 700;
+		color: $black;
+	}
+
+	&__info {
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 14px;
+		line-height: 16px;
+		color: $satan;
+	}
+}

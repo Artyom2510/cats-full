@@ -1,0 +1,43 @@
+@import '../../style/index.scss';
+
+.cat-list {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	&__card {
+		margin: 0 40px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (max-width: $md) {
+			margin: 0 20px 24px;
+
+			&:first-child {
+				margin-left: 20px;
+			}
+
+			&:last-child {
+				margin: 0 40px;
+			}
+		}
+
+		@media (max-width: $xs) {
+			margin: 0 0 32px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+}

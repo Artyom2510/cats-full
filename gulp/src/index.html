@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Cats</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/common.js"></script>
+  </head>
+  <body>
+    <div class="root">
+      <main class="main">
+        <div class="main__container">
+          <h1 class="main__title">Ты сегодня покормил кота?</h1>
+          <ul class="main__cats cat-list">
+            <li class="cat-list__card card">
+              <button class="card__wrap btn js-btn-tgl" data-kg="0,5" data-text="Печень утки разварная с артишоками">
+                <label class="btn__label">Сказочное заморское яство<span></span></label>
+                <div class="btn__body">
+                  <p class="btn__name">Нямушка</p>
+                  <p class="btn__desc">с фуа-гра</p>
+                  <p class="btn__info">10 порций мышь в подарок</p>
+                </div>
+              </button>
+              <p class="card__desc"><span>Чего сидишь? Порадуй котэ,</span>
+                <button class="js-btn-tgl-word">купи</button>.
+              </p>
+            </li>
+            <li class="cat-list__card card">
+              <button class="card__wrap btn js-btn-tgl" data-kg="2" data-text="Головы щучьи с чесноком да свежайщая сёмга">
+                <label class="btn__label">Сказочное заморское яство<span></span></label>
+                <div class="btn__body">
+                  <p class="btn__name">Нямушка</p>
+                  <p class="btn__desc">с рыбой</p>
+                  <p class="btn__info">40 порций 2 мыши в подарок</p>
+                </div>
+              </button>
+              <p class="card__desc"><span>Чего сидишь? Порадуй котэ,</span>
+                <button class="js-btn-tgl-word">купи</button>.
+              </p>
+            </li>
+            <li class="cat-list__card card card_disable">
+              <button class="card__wrap btn js-btn-tgl" data-kg="2" data-text="">
+                <label class="btn__label">Сказочное заморское яство<span></span></label>
+                <div class="btn__body">
+                  <p class="btn__name">Нямушка</p>
+                  <p class="btn__desc">с курой</p>
+                  <p class="btn__info">100 порций 5 мышей в подарок заказчик доволен</p>
+                </div>
+              </button>
+              <p class="card__desc"><span>Печалька, с курой закончилось.</span>
+                <button class="js-btn-tgl-word">купи</button>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
