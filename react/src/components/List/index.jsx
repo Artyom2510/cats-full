@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CardData from '../../api/card-data';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 
 import Card from '../Card';
 

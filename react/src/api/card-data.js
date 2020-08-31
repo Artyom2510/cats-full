@@ -1,4 +1,6 @@
 import axios from 'axios';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 
 const CardData = async () => {
 	const _apiBase = 'https://run.mocky.io/v3/ffd17f8c-8103-4f57-b1ed-74481af8bc06';
